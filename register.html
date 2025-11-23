@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Account</h2>
+        <form onsubmit="return validateRegisterForm()">
+            <label>Full Name:</label>
+            <input type="text" name="name" id="name" required>
+            
+            <label>Email:</label>
+            <input type="email" name="email" id="email" required>
+            
+            <label>Username:</label>
+            <input type="text" name="username" id="username" required>
+            
+            <label>Password:</label>
+            <input type="password" name="password" id="password" required>
+            
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+        <p><a href="index.html">← Back to Home</a></p>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/validation.js"></script>
+    <script src="js/dynamic.js"></script>
+</body>
+</html>

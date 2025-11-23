@@ -1,0 +1,70 @@
+// API Data Handling - Mock Data
+async function loadBlogPosts() {
+    try {
+        // Show loading message
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('blog-posts').innerHTML = '';
+
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Mock data (if real API fails)
+        const mockPosts = [
+            {
+                id: 1,
+                title: "Welcome to Our Blog",
+                body: "This is our first blog post. Welcome to our website where we share amazing content about web development and programming.",
+                userId: 1
+            },
+            {
+                id: 2, 
+                title: "Learn JavaScript Basics",
+                body: "JavaScript is the programming language of the web. Learn the fundamentals to become a web developer.",
+                userId: 1
+            },
+            {
+                id: 3,
+                title: "CSS Styling Tips",
+                body: "Make your websites beautiful with these CSS tips and tricks. Learn about flexbox, grid and responsive design.",
+                userId: 2
+            },
+            {
+                id: 4,
+                title: "HTML5 Features",
+                body: "Discover the powerful features of HTML5 that make modern web development easier and more efficient.",
+                userId: 2
+            },
+            {
+                id: 5,
+                title: "Web Development Career",
+                body: "Thinking about a career in web development? Here's everything you need to know to get started.",
+                userId: 3
+            }
+        ];
+
+        // Hide loading message
+        document.getElementById('loading').style.display = 'none';
+        
+        // Display posts
+        mockPosts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.innerHTML = `
+                <h3>${post.title}</h3>
+                <p>${post.body}</p>
+                <small>Post ID: ${post.id} | User ID: ${post.userId}</small>
+            `;
+            document.getElementById('blog-posts').appendChild(postElement);
+        });
+        
+    } catch (error) {
+        document.getElementById('loading').innerHTML = 
+            '❌ Failed to load posts. Please check your internet connection.';
+        console.error('Error loading posts:', error);
+    }
+}
+
+// Load posts when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadBlogPosts();
+});
